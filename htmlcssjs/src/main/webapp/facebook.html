@@ -1,37 +1,107 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Facebook</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="toolbar">
             <div class="toolbar-container">
+                <div class="facebook-icon"></div>
                 <input type="text" value=""/>
+                <div class="clear"></div>
             </div>
         </div>
-        <div class="container">
-            <div id="leftCol"></div>
-            <div id="newsFeed">
-                <div class="write-post"></div>
-                <div class="newfeed-item"></div>
-                <div class="newfeed-item"></div>
-                <div class="newfeed-item"></div>
-                <div class="newfeed-item"></div>
-                <div class="newfeed-item"></div>
+        <div class="container-wrapper">
+            <div class="container">
+                <div id="leftCol">
+                    <div class="home-profile">
+                        <div class="profile-image"></div>
+                        <div class="profile-name">jittagorn pitakmetagoon</div>
+                        <span class="clear"></span>
+                    </div>
+                </div>
+                <div id="newsFeed">
+                    <div class="write-post"></div>
+                    <div class="newfeed-item">
+                        <div class="newfeed-item-header">
+                            <div class="profile-image"></div>
+                            <div class="profile-name">
+                                <a href="#">facebook user name</a>
+                                <div class="newfeed-time">XXX minute</div>
+                            </div>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="comments">
+                            <div class="profile-image"></div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="newfeed-item">
+                        <div class="newfeed-item-header">
+                            <div class="profile-image"></div>
+                            <div class="profile-name">
+                                <a href="#">facebook user name</a>
+                                <div class="newfeed-time">XXX minute</div>
+                            </div>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="comments">
+                            <div class="profile-image"></div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="newfeed-item">
+                        <div class="newfeed-item-header">
+                            <div class="profile-image"></div>
+                            <div class="profile-name">
+                                <a href="#">facebook user name</a>
+                                <div class="newfeed-time">XXX minute</div>
+                            </div>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="comments">
+                            <div class="profile-image"></div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="newfeed-item">
+                        <div class="newfeed-item-header">
+                            <div class="profile-image"></div>
+                            <div class="profile-name">
+                                <a href="#">facebook user name</a>
+                                <div class="newfeed-time">XXX minute</div>
+                            </div>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="comments">
+                            <div class="profile-image"></div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="newfeed-item">
+                        <div class="newfeed-item-header">
+                            <div class="profile-image"></div>
+                            <div class="profile-name">
+                                <a href="#">facebook user name</a>
+                                <div class="newfeed-time">XXX minute</div>
+                            </div>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="comments">
+                            <div class="profile-image"></div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="advertist">
+                    <div class="adv-item"></div>
+                    <div class="adv-item"></div>
+                    <div class="adv-item"></div>
+                </div>
+                <span class="clear"></span>
             </div>
-            <div id="advertist">
-                <div class="adv-item"></div>
-                <div class="adv-item"></div>
-                <div class="adv-item"></div>
-            </div>
-            <span class="clear"></span>
         </div>
         <div class="sidebar">
             <div class="online-item"></div>
@@ -54,6 +124,15 @@ and open the template in the editor.
             body{
                 margin: 0;
                 background-color: #e9eaed;
+                font-family: serif;
+            }
+
+            a{
+                text-decoration: none;
+            }
+
+            a:hover{
+                text-decoration: underline;
             }
 
             .toolbar{
@@ -79,36 +158,76 @@ and open the template in the editor.
 
                 z-index: 10;
 
-                border : solid 1px #aaa;
+                border : solid 1px #ccc;
+            }
+
+            .home-profile{
+                margin-top: 15px;
+            }
+
+            .home-profile [class^=profile]{
+                float : left;
+            }
+
+            .home-profile .profile-image{
+                width: 40px;
+                height: 40px;
+                background-color: #CED0D6;
+            }
+
+            .home-profile .profile-name{
+                width: 120px;
+                margin-left: 10px;
+                font-weight: bold;
             }
 
             .online-item{
                 height: 40px;
-                border-bottom : solid 1px #aaa;
+                border-bottom : solid 1px #DEDDDD;
             }
 
             .online-item:hover{
-                background-color: #fff;
+                background-color: #E1E1E1;
             }
 
             .toolbar-container,
             .container {
                 width: 976px;
                 position: relative;
-                left : 40%;
-                margin-left: -401px;
+                left : 50%;
+                margin-left: -588px;
+            }
+
+            .facebook-icon{
+                background-color: #fff;
+                width: 28px;
+                height: 28px;
+
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkot-border-radius: 3px;
+
+                margin-right: 10px;
             }
 
             .toolbar-container input[type=text]{
-                position: relative;
-                top: 8px;
-                height: 20px;
+                height: 25px;
                 width: 400px;
-                
+
                 border-radius: 5px;
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
                 -o-border-radius: 5px;
+
+                border : 1px solid #123682;
+            }
+
+            .facebook-icon,
+            .toolbar-container input[type=text]{
+                float: left;
+
+                position: relative;
+                top: 6px;
             }
 
             .container{
@@ -135,18 +254,93 @@ and open the template in the editor.
 
             #newsFeed{
                 width: 496px;
-                //background-color: #fff;
             }
 
             #advertist{
                 width: 280px;
-                //background-color: #fff;
             }
 
             .adv-item, .newfeed-item{
-                height: 500px;
+                height: 400px;
                 background-color: #fff;
                 margin-top: 10px;
+
+                position: relative;
+            }
+
+            .comments{
+                position: absolute;
+                bottom : 0px;
+                height: 100px;
+                width: 100%;
+                background-color: #f6f7f8;
+                border-top: 1px solid #e1e2e3;
+            }
+
+            .comments .profile-image{
+                width: 32px;
+                height: 32px;
+                background-color: #fff;
+                position: absolute;
+                bottom: 10px;
+                left: 15px;
+                background-color: #CED0D6;
+
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                -o-border-radius: 3px;
+            }
+
+            .newfeed-item-header{
+                padding: 10px 15px;
+            }
+
+            .newfeed-item-header .profile-image{
+                width: 40px;
+                height: 40px;
+                background-color: #CED0D6;
+            }
+
+            .newfeed-item-header .profile-name a{
+                color : #3b5998;
+                font-size: 12pt;
+                font-weight: bold;
+
+                position: relative;
+                left: 10px;
+            }
+
+            .newfeed-time{
+                color: #999;
+                font-size: 10pt;
+                margin-left: 10px;
+                margin-top: 5px;
+            }
+
+            .newfeed-item-header [class^=profile]{
+                float: left;
+            }
+
+            .comments input[type=text]{
+                height: 22px;
+                padding: 5px;
+                border: 1px solid #dcdee3;
+                position: absolute;
+                bottom: 10px;
+                right: 15px;
+                width: 410px;
+                margin-left: 60px;
+            }
+
+            .write-post, .adv-item, .newfeed-item{
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                -o-border-radius: 3px;
+
+                border : solid 1px #E0E0E0;
+                border-bottom-color : #ccc;
             }
         </style>
     </body>
