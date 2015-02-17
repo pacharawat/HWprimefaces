@@ -9,7 +9,7 @@
         <div class="toolbar">
             <div class="toolbar-container">
                 <div class="facebook-icon"></div>
-                <input type="text" value=""/>
+                <input type="text" value="" placeholder="Search People Place and Others"/>
                 <div class="clear"></div>
             </div>
         </div>
@@ -113,7 +113,9 @@
                 <div id="newsFeed">
                     <div class="write-post">
                         <div class="write-post-header"></div>
-                        <div class="write-post-content"></div>
+                        <div class="write-post-content">
+                            <textarea placeholder="what do you think?"></textarea>
+                        </div>
                         <div class="write-post-footer">
                             <div class="post-buttons">
                                 <button class="share-with">Friends</button>
@@ -549,7 +551,8 @@
 
             .toolbar-container input[type=text]{
                 height: 25px;
-                width: 400px;
+                width: 380px;
+                padding: 0 10px;
 
                 border-radius: 5px;
                 -webkit-border-radius: 5px;
@@ -593,7 +596,15 @@
 
 
             .write-post-content{
-                height: 73px;
+                
+            }
+            
+            .write-post-content textarea{
+                width: 473px;
+                height: 50px;
+                border: none;
+                resize: none;
+                padding: 10px;
             }
 
             .write-post-footer{
