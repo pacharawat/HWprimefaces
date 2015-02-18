@@ -32,12 +32,14 @@
         <table>
             <thead>
                 <tr>
+                    <td>no.</td>
                     <td>employee id</td>
                     <td>first name</td>
                     <td>last name</td>
                     <td>email</td>
                     <td>phone number</td>
                     <td>salary</td>
+                    <td>overview</td>
                 </tr>
             </thead>
             <tbody>
@@ -73,15 +75,20 @@
 
                         resultSet = statement.executeQuery();
 
+                        int counter = 1;
                         while (resultSet.next()) {
                 %>
-                <tr>
+                <tr <%= "id=\"row:" + resultSet.getInt("employee_id") + "\""%>>
+                    <td><%= counter++ %></td>
                     <td><%= resultSet.getInt("employee_id")%></td>
                     <td><%= resultSet.getString("first_name")%></td>
                     <td><%= resultSet.getString("last_name")%></td>
                     <td><%= resultSet.getString("email")%></td>
                     <td><%= resultSet.getString("phone_number")%></td>
                     <td><%= resultSet.getDouble("salary")%></td>
+                    <td>
+                        <a href="#" onclick="viewData(<%= resultSet.getInt("employee_id")%>); return false;">overview</a>
+                    </td>
                 <tr/>
                 <%
                         }
@@ -102,6 +109,25 @@
             </tbody>
         </table>
     </body>
+    <script>
+        function viewData(id) {
+            var tr = document.getElementById("row:" + id);
+            var nodes = tr.childNodes;
+            var length = nodes.length;
+            var i = length;
+            var data = [];
+            while (--i !== -1) {
+                var node = nodes[length - (i + 1)];
+                if (node.nodeType === 1) {
+                    if (node.innerText !== 'overview') {
+                        data.push(node.innerText);
+                    }
+                }
+            }
+
+            alert(data.join(', '));
+        }
+    </script>
     <style>
         table{
             border-collapse: collapse;
