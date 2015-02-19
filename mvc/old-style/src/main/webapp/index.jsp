@@ -20,7 +20,7 @@
         %>    
         <h1>Employees</h1>
         <form method="post" action="index.jsp">
-            <input type="text" name="q" value="<%= q.replace("%", "")%>"/>
+            <input id="query" type="text" name="q" value="<%= q.replace("%", "")%>"/>
             <select name="search_by">
                 <option value="name" <%= "name".equals(searchBy) ? "selected" : ""%>>name</option>
                 <option value="email" <%= "email".equals(searchBy) ? "selected" : ""%>>email</option>
@@ -28,6 +28,7 @@
                 <option value="salary" <%= "salary".equals(searchBy) ? "selected" : ""%>>salary</option>
             </select>
             <button type="submit">Search</button>
+            <button type="submit" onclick="document.getElementById('query').value = '';">clear</button>
         </form>
         <table>
             <thead>
@@ -39,7 +40,7 @@
                     <td>email</td>
                     <td>phone number</td>
                     <td>salary</td>
-                    <td>overview</td>
+                    <td>show data</td>
                 </tr>
             </thead>
             <tbody>
@@ -87,7 +88,7 @@
                     <td><%= resultSet.getString("phone_number")%></td>
                     <td><%= resultSet.getDouble("salary")%></td>
                     <td>
-                        <a href="#" onclick="viewData(<%= resultSet.getInt("employee_id")%>); return false;">overview</a>
+                        <a href="#" onclick="showData(<%= resultSet.getInt("employee_id")%>); return false;">show data</a>
                     </td>
                 <tr/>
                 <%
@@ -110,7 +111,7 @@
         </table>
     </body>
     <script>
-        function viewData(id) {
+        function showData(id) {
             var tr = document.getElementById("row:" + id);
             var nodes = tr.childNodes;
             var length = nodes.length;
@@ -119,7 +120,7 @@
             while (--i !== -1) {
                 var node = nodes[length - (i + 1)];
                 if (node.nodeType === 1) {
-                    if (node.innerText !== 'overview') {
+                    if (node.innerText !== 'show data') {
                         data.push(node.innerText);
                     }
                 }
