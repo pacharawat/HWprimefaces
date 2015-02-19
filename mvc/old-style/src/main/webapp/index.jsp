@@ -57,19 +57,21 @@
                                 "HR"
                         );
 
-                        if ("name".equals(searchBy)) {
-                            statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?");
-                            statement.setString(1, query);
-                            statement.setString(2, query);
-                        } else if ("email".equals(searchBy)) {
-                            statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(email) LIKE ?");
-                            statement.setString(1, query);
-                        } else if ("phone".equals(searchBy)) {
-                            statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(phone_number) LIKE ?");
-                            statement.setString(1, query);
-                        } else if ("salary".equals(searchBy)) {
-                            statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(salary) LIKE ?");
-                            statement.setString(1, query);
+                        if (!q.isEmpty()) {
+                            if ("name".equals(searchBy)) {
+                                statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?");
+                                statement.setString(1, query);
+                                statement.setString(2, query);
+                            } else if ("email".equals(searchBy)) {
+                                statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(email) LIKE ?");
+                                statement.setString(1, query);
+                            } else if ("phone".equals(searchBy)) {
+                                statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(phone_number) LIKE ?");
+                                statement.setString(1, query);
+                            } else if ("salary".equals(searchBy)) {
+                                statement = connection.prepareStatement("SELECT * FROM Employees WHERE LOWER(salary) LIKE ?");
+                                statement.setString(1, query);
+                            }
                         } else {
                             statement = connection.prepareStatement("SELECT * FROM Employees");
                         }
@@ -80,7 +82,7 @@
                         while (resultSet.next()) {
                 %>
                 <tr <%= "id=\"row:" + resultSet.getInt("employee_id") + "\""%>>
-                    <td><%= counter++ %></td>
+                    <td><%= counter++%></td>
                     <td><%= resultSet.getInt("employee_id")%></td>
                     <td><%= resultSet.getString("first_name")%></td>
                     <td><%= resultSet.getString("last_name")%></td>
@@ -88,7 +90,8 @@
                     <td><%= resultSet.getString("phone_number")%></td>
                     <td><%= resultSet.getDouble("salary")%></td>
                     <td>
-                        <a href="#" onclick="showData(<%= resultSet.getInt("employee_id")%>); return false;">show data</a>
+                        <a href="#" onclick="showData(<%= resultSet.getInt("employee_id")%>);
+                                return false;">show data</a>
                     </td>
                 <tr/>
                 <%
@@ -114,15 +117,11 @@
         function showData(id) {
             var tr = document.getElementById("row:" + id);
             var nodes = tr.childNodes;
-            var length = nodes.length;
-            var i = length;
             var data = [];
-            while (--i !== -1) {
-                var node = nodes[length - (i + 1)];
-                if (node.nodeType === 1) {
-                    if (node.innerText !== 'show data') {
-                        data.push(node.innerText);
-                    }
+            for (var i = 0; i < nodes.length; i++) {
+                var node = nodes[i];
+                if (node.nodeType === 1 && node.innerText !== 'show data') {
+                    data.push(node.innerText);
                 }
             }
 
