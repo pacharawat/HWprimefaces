@@ -60,8 +60,12 @@ public class QueryBuilder3 {
 
     public <T> List<T> executeforList(final Class<T> clazz) {
         final List<T> results = new LinkedList<>();
-        execute((ResultSet resultSet) -> {
-            results.addAll(GenericAnnotationMapping.fromResultSet(resultSet, clazz));
+        execute(new Callback() {
+
+            @Override
+            public void processing(ResultSet resultSet) throws Exception {
+                results.addAll(GenericAnnotationMapping.fromResultSet(resultSet, clazz));
+            }
         });
 
         return results;
@@ -92,9 +96,13 @@ public class QueryBuilder3 {
 
     public long executeCount() {
         final Map<String, Long> map = new HashMap<>();
-        execute(wrapBySQLCount(sqlCode), (ResultSet resultSet) -> {
-            if (resultSet.next()) {
-                map.put("count", resultSet.getLong("cnt"));
+        execute(wrapBySQLCount(sqlCode), new Callback() {
+
+            @Override
+            public void processing(ResultSet resultSet) throws SQLException {
+                if (resultSet.next()) {
+                    map.put("count", resultSet.getLong("cnt"));
+                }
             }
         });
 
@@ -107,8 +115,12 @@ public class QueryBuilder3 {
         }
 
         final Page<T> page = new Page<>(pagination, executeCount());
-        execute(wrapBySQLPagination(sqlCode, pagination), (ResultSet resultSet) -> {
-            page.setContents(GenericAnnotationMapping.fromResultSet(resultSet, clazz));
+        execute(wrapBySQLPagination(sqlCode, pagination), new Callback() {
+
+            @Override
+            public void processing(ResultSet resultSet) throws Exception {
+                page.setContents(GenericAnnotationMapping.fromResultSet(resultSet, clazz));
+            }
         });
 
         return page;

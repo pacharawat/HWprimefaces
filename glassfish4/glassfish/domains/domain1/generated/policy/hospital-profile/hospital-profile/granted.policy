@@ -1,0 +1,27 @@
+/* AUTOMATICALLY GENERATED ON Tue Feb 10 14:00:45 ICT 2015*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebUserDataPermission "/";
+  permission javax.security.jacc.WebResourcePermission "/";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "th.co.geniustree.jsflibrary.photoupload.api.ImageProvider", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "th.co.geniustree.cpp.servlet.DownloadService", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CatmWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CupPotentialityWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "th.co.geniustree.cpp.servlet.ExportDataService", "**";
+  permission javax.security.jacc.WebRoleRefPermission "th.co.geniustree.cpp.servlet.PhotoGalleryService", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CupWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CupStatisticInfoWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CupParticipationInfoWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "PersonelWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "PrestigeInfoWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "BasicInfoWS", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+};
+

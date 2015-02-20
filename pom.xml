@@ -9,7 +9,8 @@
         <module>chapter6</module>
         <module>connect-database</module>
     <module>htmlcssjs</module>
-  </modules>
+        <module>mvc</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

@@ -1,0 +1,8 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Mon Sep 01 01:56:02 ICT 2014
+activation-1.1.pom>spring-snapshot=
+activation-1.1.jar>central=
+activation-1.1.pom>central=
+activation-1.1.jar>spring-snapshot=
+activation-1.1.jar>nexus=
+activation-1.1.pom>nexus=

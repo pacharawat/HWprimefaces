@@ -12,3 +12,5 @@
 hs_err_pid*
 /connect-database/target/
 /htmlcssjs/target/
+/mvc/old-style/target/
+/mvc/servlet/target/
