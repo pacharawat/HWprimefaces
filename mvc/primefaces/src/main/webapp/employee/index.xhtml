@@ -7,6 +7,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Primefaces</title>
+        <link href="#{facesContext.externalContext.requestContextPath}/static/css/style.css" rel="stylesheet"/>
     </h:head>
     <h:body>
         <h1>Employees</h1>
@@ -21,9 +22,11 @@
                 <f:selectItem itemValue="salary" itemLabel="เงินเดือน"/>
             </p:selectOneMenu>
             <p:commandButton value="search"
+                             styleClass="green-button"
                              actionListener="#{employeeCtrl.onSearch()}"
                              update="@form"/>
             <p:commandButton value="clear"
+                             styleClass="white-button"
                              actionListener="#{employeeCtrl.onClear()}"
                              update="@form"/>
             <p:dataTable value="#{employeeCtrl.employees}"
@@ -83,8 +86,16 @@
         </p:dialog>
         
         <style>
+            body{
+                padding: 20px;
+            }
+            
             .ui-datatable{
                 margin-top: 20px;
+            }
+            
+            .ui-button{
+                margin-right: 10px;
             }
             
             .ui-selectonemenu{

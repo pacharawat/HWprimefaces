@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Primefaces</title>
+    </h:head>
+    <h:body>
+        <h1>Model View Controller</h1>
+        <h:form>
+            name : <p:inputText value="#{mVCtrl.user.name}"/>
+            <br/>
+            email : <p:inputText value="#{mVCtrl.user.email}"/>
+            <br/>
+            <p:commandButton value="add"
+                             update="@form, :users"
+                             actionListener="#{mVCtrl.onAddUser()}"/>
+        </h:form>
+        <p:outputPanel id="users">
+            <p:dataTable value="#{mVCtrl.users}"
+                         var="item"
+                         emptyMessage="have no users"
+                         rowIndexVar="counter">
+                <p:column headerText="no.">
+                    #{counter + 1}
+                </p:column>
+
+                <p:column headerText="name">
+                    #{item.name}
+                </p:column>
+
+                <p:column headerText="email">
+                    #{item.email}
+                </p:column>
+            </p:dataTable>
+        </p:outputPanel>
+    </h:body>
+    <style>
+        .ui-datatable{
+            margin-top: 10px;
+        }
+        
+        .ui-inputfield{
+            margin-top: 5px;
+        }
+        
+        .ui-button{
+            margin-top: 10px;
+        }
+    </style>
+</html>
+
