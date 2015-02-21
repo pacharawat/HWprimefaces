@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -44,6 +45,21 @@ public class EmployeeCtrl implements Serializable {
         query = null;
         searchBy = null;
         onSearch();
+    }
+
+    public void onDelete() {
+        System.out.println("delelte id = " + employee.getId());
+        notifyMessage();
+    }
+
+    public void notifyMessage() {
+        FacesContext.getCurrentInstance()
+                .addMessage(null, new FacesMessage(
+                                FacesMessage.SEVERITY_INFO,
+                                "Delete Employee",
+                                "success (id " + employee.getId() + ")"
+                        ));
+
     }
 
     public List<Employee> getEmployees() {

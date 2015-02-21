@@ -10,11 +10,15 @@
         <link href="#{facesContext.externalContext.requestContextPath}/static/css/style.css" rel="stylesheet"/>
     </h:head>
     <h:body>
+        <p:growl id="notification"
+                 showDetail="true"
+                 showSummary="true"/>
+
         <h1>Employees</h1>
-        <h:form>
+        <h:form id="employeesForm">
             <p:inputText id="query" value="#{employeeCtrl.query}"/>
             <p:watermark for="query" value="search..."/>
-            
+
             <p:selectOneMenu value="#{employeeCtrl.searchBy}">
                 <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
                 <f:selectItem itemValue="email" itemLabel="email"/>
@@ -35,6 +39,9 @@
                 <p:column headerText="no." style="width: 5%">
                     #{counter + 1}
                 </p:column>
+                <p:column headerText="id">
+                    #{item.id}
+                </p:column>
                 <p:column headerText="ชื่อ">
                     #{item.firstName}
                 </p:column>
@@ -51,53 +58,85 @@
                     #{item.salary}
                 </p:column>
                 <p:column headerText="#">
-                    <p:commandLink value="show data"
-                                   update=":employeeDialogPanel"
-                                   oncomplete="PF('employeeWidgetDialog').show()"
+                    <p:commandLink value="show"
+                                   update=":showDialogPanel"
+                                   oncomplete="PF('showWidgetDialog').show()"
+                                   actionListener="#{employeeCtrl.onSelect()}">
+                        <f:param name="employeeId" value="#{item.id}"/>
+                    </p:commandLink>
+                    <p:spacer width="10"/>
+                    <p:commandLink value="delete"
+                                   update=":deleteDialogForm"
+                                   oncomplete="PF('deleteWidgetDialog').show()"
                                    actionListener="#{employeeCtrl.onSelect()}">
                         <f:param name="employeeId" value="#{item.id}"/>
                     </p:commandLink>
                 </p:column>
             </p:dataTable>
         </h:form>
-        
-        <p:dialog id="employeeDialog"
+
+        <p:dialog id="showDialog"
                   width="500"
+                  header="Show Employee"
                   resizable="false"
-                  widgetVar="employeeWidgetDialog">
-            <p:outputPanel id="employeeDialogPanel">
+                  widgetVar="showWidgetDialog">
+            <p:outputPanel id="showDialogPanel">
                 <h:panelGrid columns="2">
+                    <h:outputText value="id"/>
+                    <h:outputText value="#{employeeCtrl.employee.id}"/>
+
                     <h:outputText value="ชื่อ"/>
                     <h:outputText value="#{employeeCtrl.employee.firstName}"/>
-                    
+
                     <h:outputText value="นามสกุล"/>
                     <h:outputText value="#{employeeCtrl.employee.lastName}"/>
-                    
+
                     <h:outputText value="email"/>
                     <h:outputText value="#{employeeCtrl.employee.email}"/>
-                    
+
                     <h:outputText value="เบอร์โทรศัพท์"/>
                     <h:outputText value="#{employeeCtrl.employee.phoneNumber}"/>
-                    
+
                     <h:outputText value="เงินเดือน"/>
                     <h:outputText value="#{employeeCtrl.employee.salary}"/>
                 </h:panelGrid>
             </p:outputPanel>
         </p:dialog>
-        
+
+        <p:dialog id="deleteDialog"
+                  width="500"
+                  header="Delete Employee"
+                  resizable="false"
+                  widgetVar="deleteWidgetDialog">
+            <h:form id="deleteDialogForm"> 
+                #{employeeCtrl.employee.firstName} #{employeeCtrl.employee.lastName}
+                <br/>
+                <br/>
+                <p:commandButton value="delete"
+                                 update=":notification, :employeesForm"
+                                 actionListener="#{employeeCtrl.onDelete()}"
+                                 oncomplete="PF('deleteWidgetDialog').hide()"
+                                 styleClass="red-button"/>
+                <p:commandButton value="cancel"
+                                 type="button"
+                                 onclick="PF('deleteWidgetDialog').hide()"
+                                 styleClass="white-button"/>
+            </h:form>
+        </p:dialog>
+
         <style>
             body{
                 padding: 20px;
             }
-            
+
             .ui-datatable{
                 margin-top: 20px;
             }
-            
+
             .ui-button{
                 margin-right: 10px;
             }
-            
+
             .ui-selectonemenu{
                 position: relative;
                 top : 10px;
