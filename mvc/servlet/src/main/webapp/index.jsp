@@ -59,7 +59,7 @@
                     <td><%= employee.getPhoneNumber()%></td>
                     <td><%= employee.getSalary()%></td>
                     <td>
-                        <a href="#">show data</a>
+                        <a href="javascript:void(0)">show data</a>
                     </td>
                 </tr>   
                 <%

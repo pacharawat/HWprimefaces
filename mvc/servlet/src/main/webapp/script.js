@@ -1,6 +1,6 @@
 (function($) {
     $(function() {
-        $('a').on('click', function() {
+        $('a').on('click', function(event) {
             var $tr = $(this).parents('tr');
             var data = [];
             $tr.children('td').each(function() {
