@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Primefaces</title>
+    </h:head>
+    <h:body>
+        <h1>Dialog</h1>
+        <p:commandButton value="show dialog"
+                         type="button"
+                         onclick="PF('infoWidgetDialog').show()"/>
+        
+        <p:dialog widgetVar="infoWidgetDialog"
+                  width="500"
+                  modal="true"
+                  header="Information Dialog"
+                  resizable="false"
+                  height="300">
+            Information Dialog Content
+        </p:dialog>
+    </h:body>
+</html>
+
