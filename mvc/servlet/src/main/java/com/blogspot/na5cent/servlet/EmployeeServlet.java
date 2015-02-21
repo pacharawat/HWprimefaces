@@ -24,11 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 public class EmployeeServlet extends HttpServlet {
 
     private void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String query = SqlUtils.wrapKeywordLike(req.getParameter("q"));
+        String query = req.getParameter("q");
         String searchBy = req.getParameter("search_by");
-        if (StringUtils.isEmpty(searchBy)) {
-            searchBy = "default";
-        }
 
         EmployeeSearchService service = SearchServiceUtils.findServiceByName(searchBy);
         req.setAttribute("employees", service.search(query));

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Primefaces</title>
+    </h:head>
+    <h:body>
+        <h1>Employees</h1>
+        <h:form>
+            <p:inputText value="#{employeeCtrl.query}"/>
+            <p:selectOneMenu value="#{employeeCtrl.searchBy}">
+                <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
+                <f:selectItem itemValue="email" itemLabel="email"/>
+                <f:selectItem itemValue="phone" itemLabel="เบอร์โทรศัพท์"/>
+                <f:selectItem itemValue="salary" itemLabel="เงินเดือน"/>
+            </p:selectOneMenu>
+            <p:commandButton value="search"
+                             actionListener="#{employeeCtrl.onSearch()}"
+                             update="@form"/>
+            <p:commandButton value="clear"
+                             actionListener="#{employeeCtrl.onClear()}"
+                             update="@form"/>
+            
+            <p:dataTable value="#{employeeCtrl.employees}"
+                         rowIndexVar="counter"
+                         var="item">
+                <p:column headerText="no.">
+                    #{counter + 1}
+                </p:column>
+                <p:column headerText="ชื่อ">
+                    #{item.firstName}
+                </p:column>
+                <p:column headerText="นามสกุล">
+                    #{item.lastName}
+                </p:column>
+                <p:column headerText="email">
+                    #{item.email}
+                </p:column>
+                <p:column headerText="เบอร์โทรศัพท์">
+                    #{item.phoneNumber}
+                </p:column>
+                <p:column headerText="เงินเดือน">
+                    #{item.salary}
+                </p:column>
+                <p:column headerText="#">
+                    
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

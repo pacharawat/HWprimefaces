@@ -12,5 +12,6 @@
   <modules>
     <module>old-style</module>
     <module>servlet</module>
+    <module>primefaces</module>
   </modules>
 </project>
