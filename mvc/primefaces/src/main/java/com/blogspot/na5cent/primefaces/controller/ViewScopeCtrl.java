@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.blogspot.na5cent.primefaces.controller;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -16,15 +17,17 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class OneWayBindingCtrl implements Serializable{
-    
-    private String name = "primefacse";
-    
-    public String getMessage(){
-        return "first controller";
+public class ViewScopeCtrl implements Serializable {
+
+    private long currentTimestamp;
+
+    @PostConstruct
+    public void postConstruct() {
+        currentTimestamp = new Date().getTime();
     }
-    
-    public String getApplicationName(){
-        return name;
+
+    public long getCurrentTimestamp() {
+        return currentTimestamp;
     }
+
 }

@@ -9,10 +9,15 @@
         <title>Primefaces</title>
     </h:head>
     <h:body>
-        <h1>One way binding</h1>
-        message : #{oneWayBindingCtrl.message} 
+        <h1>Scope</h1>
+        application scope timestamp : #{applicationScopeCtrl.currentTimestamp}
         <br/>
-        framework name : #{oneWayBindingCtrl.applicationName}
+        session scope timestamp : #{sessionScopeCtrl.currentTimestamp}
+        <br/>
+        view scope timestamp : #{viewScopeCtrl.currentTimestamp}
+        <br/>
+        request scope timestamp : #{requestScopeCtrl.currentTimestamp}
+        <br/>
     </h:body>
 </html>
 
