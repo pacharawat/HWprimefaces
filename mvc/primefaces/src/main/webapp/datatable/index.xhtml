@@ -9,14 +9,18 @@
         <title>Primefaces</title>
     </h:head>
     <h:body>
-        <h1>Send parameter to controller</h1>
-        <h:form>
-            <p:commandButton value="send param"
-                             update="@form"
-                             actionListener="#{sendParamCtrl.onSendParam()}">
-                <f:param name="postId" value="10000"/>
-            </p:commandButton>
-        </h:form>
+        <h1>Data table</h1>
+        <p:dataTable value="#{dataTableCtrl.days}"
+                     var="item"
+                     rowIndexVar="counter">
+            <p:column headerText="no.">
+                #{counter + 1}
+            </p:column>
+            
+            <p:column headerText="day">
+                #{item}
+            </p:column>
+        </p:dataTable>
     </h:body>
 </html>
 

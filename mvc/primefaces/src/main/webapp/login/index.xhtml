@@ -9,11 +9,11 @@
         <title>Primefaces</title>
     </h:head>
     <h:body>
-        <h1>Two way Binding</h1>
+        <h1>Two way binding</h1>
         <h:form>
             username : <p:inputText value="#{loginFormCtrl.username}"/>
             <br/>
-            password : <p:inputText value="#{loginFormCtrl.password}"/>
+            password : <p:inputText value="#{loginFormCtrl.password}" type="password"/>
             <br/>
             <p:commandButton value="login"
                              update="@form"

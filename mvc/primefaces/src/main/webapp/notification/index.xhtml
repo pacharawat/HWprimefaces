@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Primefaces</title>
+    </h:head>
+    <h:body>
+        <h1>Notification</h1>
+        <p:growl id="notification"
+                 showDetail="true"
+                 showSummary="true"/>
+        
+        <h:form>
+            username : <p:inputText value="#{notificationCtrl.username}"/>
+            <br/>
+            password : <p:inputText value="#{notificationCtrl.password}" type="password"/>
+            <br/>
+            email : <p:inputText value="#{notificationCtrl.email}"/>
+            <br/>
+            gender : <p:selectOneMenu value="#{notificationCtrl.gender}">
+                <f:selectItem itemLabel="Male" itemValue="M"/>
+                <f:selectItem itemLabel="Female" itemValue="F"/>
+            </p:selectOneMenu>
+            <p:commandButton value="send"
+                             update=":notification"
+                             actionListener="#{notificationCtrl.onSend()}"/>
+        </h:form>
+        
+        <style>
+            .ui-selectonemenu{
+                position: relative;
+                top : 10px;
+                margin-right: 10px;
+            }
+            
+            .ui-selectonemenu-label{
+                margin-top: 0 !important;
+            }
+            
+            .ui-inputfield{
+                margin-top: 10px;
+            }
+        </style>
+    </h:body>
+</html>
+
