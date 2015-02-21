@@ -9,15 +9,7 @@
         <title>Primefaces</title>
     </h:head>
     <h:body>
-        <h1>Menu</h1>
-        <ul>
-            <li>
-                <a href="#{facesContext.externalContext.requestContextPath}/first/">First controller</a>
-            </li>
-            <li>
-                <a href="#{facesContext.externalContext.requestContextPath}/login/">Login controller</a>
-            </li>
-        </ul>
+        #{firstCtrl.message} 
     </h:body>
 </html>
 

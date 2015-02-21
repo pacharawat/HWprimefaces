@@ -5,7 +5,6 @@
  */
 package com.blogspot.na5cent.service;
 
-import com.blogspot.na5cent.connectdb.model.EmployeeMap;
 import com.blogspot.na5cent.connectdb.query.QueryBuilder3;
 import com.blogspot.na5cent.connectdb.util.SqlUtils;
 import com.blogspot.na5cent.primefaces.model.Employee;
