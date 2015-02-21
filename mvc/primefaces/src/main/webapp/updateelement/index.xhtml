@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Primefaces</title>
+    </h:head>
+    <h:body>
+        <p:outputPanel id="currentTimestamp">
+            current time stamp = #{updateElementCtrl.timeStamp}
+        </p:outputPanel>
+        <br/>
+        <br/>
+        <p:outputPanel id="uuid">
+            uuid = #{updateElementCtrl.UUID}
+        </p:outputPanel>
+        <br/>
+        <br/>
+        <h:form>
+            <p:commandButton value="send param"
+                             update=":currentTimestamp, :uuid"/>
+        </h:form>
+    </h:body>
+</html>
+

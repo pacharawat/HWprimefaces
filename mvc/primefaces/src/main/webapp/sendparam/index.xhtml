@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Primefaces</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:commandButton value="send param"
+                             update="@form"
+                             actionListener="#{sendParamCtrl.onSendParam()}">
+                <f:param name="postId" value="10000"/>
+            </p:commandButton>
+        </h:form>
+    </h:body>
+</html>
+
