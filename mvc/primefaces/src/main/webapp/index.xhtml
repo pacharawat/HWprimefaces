@@ -47,10 +47,39 @@
                     #{item.salary}
                 </p:column>
                 <p:column headerText="#">
-                    
+                    <p:commandLink value="show data"
+                                   update=":employeeDialogPanel"
+                                   oncomplete="PF('employeeWidgetDialog').show()"
+                                   actionListener="#{employeeCtrl.onSelect()}">
+                        <f:param name="employeeId" value="#{item.id}"/>
+                    </p:commandLink>
                 </p:column>
             </p:dataTable>
         </h:form>
+        
+        <p:dialog id="employeeDialog"
+                  width="500"
+                  resizable="false"
+                  widgetVar="employeeWidgetDialog">
+            <p:outputPanel id="employeeDialogPanel">
+                <h:panelGrid columns="2">
+                    <h:outputText value="ชื่อ"/>
+                    <h:outputText value="#{employeeCtrl.employee.firstName}"/>
+                    
+                    <h:outputText value="นามสกุล"/>
+                    <h:outputText value="#{employeeCtrl.employee.lastName}"/>
+                    
+                    <h:outputText value="email"/>
+                    <h:outputText value="#{employeeCtrl.employee.email}"/>
+                    
+                    <h:outputText value="เบอร์โทรศัพท์"/>
+                    <h:outputText value="#{employeeCtrl.employee.phoneNumber}"/>
+                    
+                    <h:outputText value="เงินเดือน"/>
+                    <h:outputText value="#{employeeCtrl.employee.salary}"/>
+                </h:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
     </h:body>
 </html>
 

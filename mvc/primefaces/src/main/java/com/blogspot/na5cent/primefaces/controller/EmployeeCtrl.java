@@ -14,6 +14,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -21,14 +22,16 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class EmployeeCtrl implements Serializable{
+public class EmployeeCtrl implements Serializable {
 
     private List<EmployeeMap> employees;
     private String query;
     private String searchBy;
-    
+    //
+    private EmployeeMap employee;
+
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         onSearch();
     }
 
@@ -36,8 +39,8 @@ public class EmployeeCtrl implements Serializable{
         EmployeeSearchService service = SearchServiceUtils.findServiceByName(searchBy);
         employees = service.search(query);
     }
-    
-    public void onClear(){
+
+    public void onClear() {
         query = null;
         searchBy = null;
         onSearch();
@@ -65,6 +68,29 @@ public class EmployeeCtrl implements Serializable{
 
     public void setSearchBy(String searchBy) {
         this.searchBy = searchBy;
+    }
+
+    private Object request(String param) {
+        return FacesContext.getCurrentInstance()
+                .getExternalContext()
+                .getRequestParameterMap()
+                .get(param);
+    }
+
+    public void onSelect() {
+        Integer id = Integer.valueOf((String) request("employeeId"));
+        EmployeeMap emp = new EmployeeMap();
+        emp.setId(id);
+        int index = getEmployees().indexOf(emp);
+        employee = getEmployees().get(index);
+    }
+
+    public EmployeeMap getEmployee() {
+        if(employee == null){
+            employee = new EmployeeMap();
+        }
+        
+        return employee;
     }
 
 }
