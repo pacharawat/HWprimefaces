@@ -11,7 +11,9 @@
     <h:body>
         <h1>Employees</h1>
         <h:form>
-            <p:inputText value="#{employeeCtrl.query}"/>
+            <p:inputText id="query" value="#{employeeCtrl.query}"/>
+            <p:watermark for="query" value="search..."/>
+            
             <p:selectOneMenu value="#{employeeCtrl.searchBy}">
                 <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
                 <f:selectItem itemValue="email" itemLabel="email"/>
@@ -24,7 +26,6 @@
             <p:commandButton value="clear"
                              actionListener="#{employeeCtrl.onClear()}"
                              update="@form"/>
-            
             <p:dataTable value="#{employeeCtrl.employees}"
                          rowIndexVar="counter"
                          var="item">
@@ -80,6 +81,19 @@
                 </h:panelGrid>
             </p:outputPanel>
         </p:dialog>
+        
+        <style>
+            .ui-datatable{
+                margin-top: 20px;
+            }
+            
+            .ui-selectonemenu{
+                position: relative;
+                top : 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        </style>
     </h:body>
 </html>
 
