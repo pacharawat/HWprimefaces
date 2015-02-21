@@ -16,7 +16,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class FirstCtrl implements Serializable{
+public class OneWayBindingCtrl implements Serializable{
     
     public String getMessage(){
         return "first controller";
