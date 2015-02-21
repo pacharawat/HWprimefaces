@@ -5,7 +5,7 @@
  */
 package com.blogspot.na5cent.service;
 
-import com.blogspot.na5cent.connectdb.model.EmployeeMap;
+import com.blogspot.na5cent.model.Employee;
 import com.blogspot.na5cent.connectdb.query.QueryBuilder3;
 import com.blogspot.na5cent.connectdb.util.SqlUtils;
 import java.util.List;
@@ -17,13 +17,13 @@ import java.util.List;
 public class EmployeeSearchByNameServiceImpl implements EmployeeSearchService {
 
     @Override
-    public List<EmployeeMap> search(String keyword) {
+    public List<Employee> search(String keyword) {
         keyword = SqlUtils.wrapKeywordLike(keyword);
         
         return QueryBuilder3.fromSQL("SELECT * FROM Employees WHERE LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?")
                 .addParam(keyword)
                 .addParam(keyword)
-                .executeforList(EmployeeMap.class);
+                .executeforList(Employee.class);
     }
 
 }

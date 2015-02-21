@@ -5,7 +5,7 @@
  */
 package com.blogspot.na5cent.service;
 
-import com.blogspot.na5cent.connectdb.model.EmployeeMap;
+import com.blogspot.na5cent.primefaces.model.Employee;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface EmployeeSearchService {
 
-    List<EmployeeMap> search(String keyword);
+    List<Employee> search(String keyword);
 }

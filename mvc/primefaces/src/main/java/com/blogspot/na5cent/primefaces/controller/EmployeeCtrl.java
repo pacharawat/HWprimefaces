@@ -5,7 +5,7 @@
  */
 package com.blogspot.na5cent.primefaces.controller;
 
-import com.blogspot.na5cent.connectdb.model.EmployeeMap;
+import com.blogspot.na5cent.primefaces.model.Employee;
 import com.blogspot.na5cent.service.EmployeeSearchService;
 import com.blogspot.na5cent.service.SearchServiceUtils;
 import java.io.Serializable;
@@ -24,11 +24,11 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class EmployeeCtrl implements Serializable {
 
-    private List<EmployeeMap> employees;
+    private List<Employee> employees;
     private String query;
     private String searchBy;
     //
-    private EmployeeMap employee;
+    private Employee employee;
 
     @PostConstruct
     public void postConstruct() {
@@ -46,7 +46,7 @@ public class EmployeeCtrl implements Serializable {
         onSearch();
     }
 
-    public List<EmployeeMap> getEmployees() {
+    public List<Employee> getEmployees() {
         if (employees == null) {
             employees = new LinkedList<>();
         }
@@ -79,17 +79,17 @@ public class EmployeeCtrl implements Serializable {
 
     public void onSelect() {
         Integer id = Integer.valueOf((String) request("employeeId"));
-        EmployeeMap emp = new EmployeeMap();
+        Employee emp = new Employee();
         emp.setId(id);
         int index = getEmployees().indexOf(emp);
         employee = getEmployees().get(index);
     }
 
-    public EmployeeMap getEmployee() {
-        if(employee == null){
-            employee = new EmployeeMap();
+    public Employee getEmployee() {
+        if (employee == null) {
+            employee = new Employee();
         }
-        
+
         return employee;
     }
 

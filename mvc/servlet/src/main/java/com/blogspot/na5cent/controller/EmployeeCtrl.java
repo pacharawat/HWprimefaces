@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.blogspot.na5cent.servlet;
+package com.blogspot.na5cent.controller;
 
-import com.blogspot.na5cent.connectdb.util.SqlUtils;
-import com.blogspot.na5cent.connectdb.util.StringUtils;
 import com.blogspot.na5cent.service.EmployeeSearchService;
 import com.blogspot.na5cent.service.SearchServiceUtils;
 import java.io.IOException;
@@ -21,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author anonymous
  */
 @WebServlet(urlPatterns = "/employees")
-public class EmployeeServlet extends HttpServlet {
+public class EmployeeCtrl extends HttpServlet {
 
     private void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String query = req.getParameter("q");

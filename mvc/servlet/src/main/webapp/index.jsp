@@ -1,5 +1,5 @@
 <%@page import="com.blogspot.na5cent.connectdb.util.CollectionUtils"%>
-<%@page import="com.blogspot.na5cent.connectdb.model.EmployeeMap"%>
+<%@page import="com.blogspot.na5cent.model.Employee"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Statement"%>
@@ -19,7 +19,7 @@
     <body>
         <h1>Employees</h1>
         <form method="post" action="${pageContext.request.servletContext.contextPath}/employees">
-            <input type="text" name="q" value=""/>
+            <input type="text" name="q" value="${pageContext.request.getParameter("q")}"/>
             <input type="hidden" name="by" value="${pageContext.request.getParameter("search_by")}"/>
             <select name="search_by">
                 <option value="name">name</option>
@@ -45,10 +45,10 @@
             </thead>
             <tbody>
                 <%
-                    List<EmployeeMap> employees = (List<EmployeeMap>) request.getAttribute("employees");
+                    List<Employee> employees = (List<Employee>) request.getAttribute("employees");
                     if (!CollectionUtils.isEmpty(employees)) {
                         for (int i = 0; i < employees.size(); i++) {
-                            EmployeeMap employee = employees.get(i);
+                            Employee employee = employees.get(i);
                 %>            
                 <tr>
                     <td><%= (i + 1)%></td>
