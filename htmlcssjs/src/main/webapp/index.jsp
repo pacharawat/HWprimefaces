@@ -34,6 +34,12 @@
             <li>
                 <a href="introduce-js/">รู้จักกับ Javascript</a>
             </li>
+            <li>
+                <a href="java-web-application/">การทำงานของ Java Web Application</a>
+            </li>
+            <li>
+                <a href="servlet/">รู้จักกับ Servlet</a>
+            </li>
             <!--
             <li>
                 <a href="introduce-js/">รู้จักกับ jQuery</a>
@@ -43,9 +49,6 @@
             </li>
             <li>
                 <a href="introduce-js/">รู้จักกับ JSON</a>
-            </li>
-             <li>
-                <a>การทำงานของ Java Web Application</a>
             </li>
             <li>
                 <a>รู้จักกับ Servlet</a>
