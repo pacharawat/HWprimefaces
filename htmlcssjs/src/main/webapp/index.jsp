@@ -40,6 +40,9 @@
             <li>
                 <a href="servlet/">รู้จักกับ Servlet</a>
             </li>
+            <li>
+                <a href="session/">รู้จักกับ Session</a>
+            </li>
             <!--
             <li>
                 <a href="introduce-js/">รู้จักกับ jQuery</a>
