@@ -1,4 +1,0 @@
-#NOTE: This is an internal implementation file, its format can be changed without prior notice.
-#Tue Jan 06 16:37:33 ICT 2015
-http\://192.168.1.126\:8088/nexus/content/groups/public/.error=Could not transfer artifact javax.persistence\:persistence-api\:pom\:1.0 from/to nexus (http\://192.168.1.126\:8088/nexus/content/groups/public/)\: Connection to http\://192.168.1.126\:8088 refused
-default-http\://192.168.1.126\:8088/nexus/content/groups/public/.lastUpdated=1420537053407

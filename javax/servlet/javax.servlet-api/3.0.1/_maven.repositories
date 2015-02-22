@@ -1,8 +1,0 @@
-#NOTE: This is an internal implementation file, its format can be changed without prior notice.
-#Fri Sep 05 22:46:56 ICT 2014
-javax.servlet-api-3.0.1.pom>spring-snapshot=
-javax.servlet-api-3.0.1.jar>central=
-javax.servlet-api-3.0.1.jar>spring-snapshot=
-javax.servlet-api-3.0.1.pom>central=
-javax.servlet-api-3.0.1.jar>nexus=
-javax.servlet-api-3.0.1.pom>nexus=
