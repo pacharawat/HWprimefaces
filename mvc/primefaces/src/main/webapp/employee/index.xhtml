@@ -15,9 +15,12 @@
                  showSummary="true"/>
 
         <h1>Employees</h1>
+        <br></br><br></br><br></br><br></br>
+        
         <h:form id="employeesForm">
             <p:inputText id="query" value="#{employeeCtrl.query}"/>
             <p:watermark for="query" value="search..."/>
+         
 
             <p:selectOneMenu value="#{employeeCtrl.searchBy}">
                 <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
@@ -25,14 +28,83 @@
                 <f:selectItem itemValue="phone" itemLabel="เบอร์โทรศัพท์"/>
                 <f:selectItem itemValue="salary" itemLabel="เงินเดือน"/>
             </p:selectOneMenu>
+                                 
             <p:commandButton value="search"
                              styleClass="green-button"
                              actionListener="#{employeeCtrl.onSearch()}"
                              update="@form"/>
+                      
             <p:commandButton value="clear"
                              styleClass="white-button"
                              actionListener="#{employeeCtrl.onClear()}"
+                             update="@form"/>   
+            <br></br><br></br><br></br>
+            
+            
+            
+            <p:inputText id="query1" value="#{employeeCtrl.query}"/>
+                    <p:watermark for="query1" value="insert..."/>
+                        <p:selectOneMenu value="#{employeeCtrl.searchBy}">
+                            <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
+                            <f:selectItem itemValue="email" itemLabel="email"/>
+                            <f:selectItem itemValue="phone" itemLabel="เบอร์โทรศัพท์"/>
+                            <f:selectItem itemValue="salary" itemLabel="เงินเดือน"/>
+                        </p:selectOneMenu>
+                    
+                    <p:commandButton value="insert"
+                             styleClass="green-button"
+                             actionListener="#{employeeCtrl.onInsert()}"
+                             update="@form"/>           
+                    <p:commandButton value="clear"
+                             styleClass="white-button"
+                             actionListener="#{employeeCtrl.onClear()}"
+                             update="@form"/>   
+                    <br></br><br></br><br></br>
+                    
+                    <p:inputText id="query2" value="#{employeeCtrl.query}"/>
+                    <p:watermark for="query2" value="update..."/>
+                        <p:selectOneMenu value="#{employeeCtrl.searchBy}">
+                            <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
+                            <f:selectItem itemValue="email" itemLabel="email"/>
+                            <f:selectItem itemValue="phone" itemLabel="เบอร์โทรศัพท์"/>
+                            <f:selectItem itemValue="salary" itemLabel="เงินเดือน"/>
+                        </p:selectOneMenu>
+                    <p:commandButton value="update"
+                             styleClass="green-button"
+                             actionListener="#{employeeCtrl.onUpdate()}"
                              update="@form"/>
+           
+                    <p:commandButton value="clear"
+                             styleClass="white-button"
+                             actionListener="#{employeeCtrl.onClear()}"
+                             update="@form"/>   
+                    <br></br><br></br><br></br>
+                    
+                    <p:inputText id="query3" value="#{employeeCtrl.query}"/>
+                    <p:watermark for="query3" value="delete..."/>
+                        <p:selectOneMenu value="#{employeeCtrl.searchBy}">
+                            <f:selectItem itemValue="name" itemLabel="ชื่อ"/>
+                            <f:selectItem itemValue="email" itemLabel="email"/>
+                            <f:selectItem itemValue="phone" itemLabel="เบอร์โทรศัพท์"/>
+                            <f:selectItem itemValue="salary" itemLabel="เงินเดือน"/>
+                    </p:selectOneMenu>
+                    <p:commandButton value="delete"
+                             styleClass="green-button"
+                             actionListener="#{employeeCtrl.onDelete()}"
+                             update="@form"/>
+           
+                    <p:commandButton value="clear"
+                             styleClass="white-button"
+                             actionListener="#{employeeCtrl.onClear()}"
+                             update="@form"/>   
+                    
+                    
+            <br></br><br></br><br></br><br></br><br></br><br></br> 
+
+            
+                           
+                    
+                    
             <p:dataTable value="#{employeeCtrl.employees}"
                          rowIndexVar="counter"
                          var="item">
